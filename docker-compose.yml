@@ -1,10 +1,10 @@
 version: '3.6'
 services:
-  api:
+  sennder_api:
     build:
       context: ./api
       dockerfile: ./Dockerfile
-    container_name: api
+    container_name: sennder_api
     restart: unless-stopped
     expose:
         - 80
@@ -15,11 +15,11 @@ services:
       LETSENCRYPT_HOST: api.sennder.abdulwahid.info
       VIRTUAL_HOST: api.sennder.abdulwahid.info
     
-  webapp:
+  sennder_webapp:
     build:
         context: ./webapp
         dockerfile: ./Dockerfile
-    container_name: webapp
+    container_name: sennder_webapp
     restart: unless-stopped
     expose:
         - 80

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sennder": {
+    "world": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sennder",
+            "outputPath": "dist/world",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sennder:build"
+            "browserTarget": "world:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sennder:build:production"
+              "browserTarget": "world:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sennder:build"
+            "browserTarget": "world:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sennder:serve"
+            "devServerTarget": "world:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sennder:serve:production"
+              "devServerTarget": "world:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "sennder"
+  "defaultProject": "world"
 }
