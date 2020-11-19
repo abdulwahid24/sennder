@@ -11,7 +11,7 @@ export class MovieService {
   constructor(private http: HttpClient) {}
 
   list(): Observable<Movie[]> {
-    return this.http.get<Movie[]>('http://localhost:8000/movies')
+    return this.http.get<Movie[]>('https://api.sennder.abdulwahid.info/movies')
   }
 
 }

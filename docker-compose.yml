@@ -6,8 +6,9 @@ services:
       dockerfile: ./Dockerfile
     container_name: api
     restart: unless-stopped
-    ports:
-        - '8000:80'
+    expose:
+        - 80
+        - 443
     volumes:
       - ./api:/app:cached
     environment:
@@ -20,8 +21,6 @@ services:
         dockerfile: ./Dockerfile
     container_name: webapp
     restart: unless-stopped
-    ports:
-        - '8080:80'
     expose:
         - 80
         - 443

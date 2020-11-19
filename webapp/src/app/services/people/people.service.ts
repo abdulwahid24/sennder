@@ -11,7 +11,7 @@ export class PeopleService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<Person[]> {
-    return this.http.get<Person[]>('http://localhost:8000/people')
+    return this.http.get<Person[]>('https://api.sennder.abdulwahid.info/people')
   }
 
 }
