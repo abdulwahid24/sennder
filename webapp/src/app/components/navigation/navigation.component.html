@@ -1,0 +1,20 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand pl-2" href="#">{{brand_name}}</a>
+    <button (click)="isMenuCollapsed = !isMenuCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarText">
+        <ul ngbNav [activeId]="route.fragment | async" class="navbar-nav mr-auto">
+            <li [ngbNavItem]="link.fragment" *ngFor="let link of links" class="nav-item">
+                <a ngbNavLink (click)="isMenuCollapsed = true" routerLink="{{link.fragment}}" class="nav-link">{{ link.title }}</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0" *ngIf="this.router.url.split('?')[0]=='/people'">
+            <input (input)="searchPeople($event.target.value)" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button (click)="openAddPeopleModal()"  class="btn btn-outline-primary my-2 my-sm-0">
+                <fa-icon [icon]="faAddPerson"></fa-icon>
+            </button>
+        </div>
+    </div>
+  </nav>
