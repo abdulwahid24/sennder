@@ -6,14 +6,12 @@ services:
       dockerfile: ./Dockerfile
     container_name: api
     restart: unless-stopped
+    ports: 
+        - '8000:80'
     expose:
         - 80
-        - 443
     volumes:
       - ./api:/app:cached
-    environment:
-      LETSENCRYPT_HOST: api.sennder.abdulwahid.info
-      VIRTUAL_HOST: api.sennder.abdulwahid.info
     
   webapp:
     build:
@@ -21,20 +19,10 @@ services:
         dockerfile: ./Dockerfile
     container_name: webapp
     restart: unless-stopped
+    ports: 
+        - '8080:80'
     expose:
         - 80
-        - 443
     volumes:
         - ./webapp/:/app:cached
         - /app/node_modules/
-    environment:
-        LETSENCRYPT_HOST: sennder.abdulwahid.info
-        VIRTUAL_HOST: sennder.abdulwahid.info
-
-volumes:
-  db_data:
-
-networks:
-  default:
-    external:
-      name: nginx-proxy
