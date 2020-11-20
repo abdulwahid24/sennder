@@ -5,7 +5,7 @@ I developed the application as docker containerized.
 Please follow the below mentioned instructions in order to run it locally.
 
 ```
-$ docker-compose up --build -d
+$ docker-compose -f docker-compose-local.yml up --build -d
 $ docker-compose ps
 $ docker-compose logs -f
 ```
